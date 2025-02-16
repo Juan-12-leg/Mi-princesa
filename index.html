@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi alma gemela ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #9b4f4f 0%, #4a1919 100%);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 30px auto;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 52px;
+            height: 80px;
+            border-radius: 50px 50px 0 0;
+            background-color: #ff4b6e;
+        }
+
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            color: #ff9eaa;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .photo-container {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .button {
+            background: #ff4b6e;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .photo-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts"></div>
+    <div class="container">
+        <div class="heart"></div>
+        <h1>Para mi alma gemela ❤️</h1>
+        
+        <div class="message">
+            <p>Mi amor hermoso,</p>
+            <p>Cada momento que paso contigo es un regalo del cielo. Tu belleza, tanto interior como exterior, me deja sin aliento. Eres la persona más especial en mi vida, mi compañera, mi confidente, mi todo.</p>
+            <p>Tu sonrisa ilumina mis días más oscuros y tu amor me da la fuerza para enfrentar cualquier desafío. Eres mi inspiración y mi razón para ser mejor cada día.</p>
+            <p>Gracias por ser quien eres y por compartir tu vida conmigo. Te amo más allá de las palabras. ❤️</p>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-container">
+                <img src="LAU.jpeg" alt="Mi amor" />
+            </div>
+            <div class="photo-container">
+                <img src="Osorio.jpeg" alt="Mi vida" />
+            </div>
+            <div class="photo-container">
+                <img src="Sepul.jpeg" alt="Mi todo" />
+            </div>
+        </div>
+
+        <button class="button" onclick="showLove()">Toca aquí mi amor ❤️</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.opacity = '1';
+            heart.style.transition = 'all ' + (Math.random() * 2 + 3) + 's linear';
+            heart.style.zIndex = '-1';
+            
+            document.querySelector('.floating-hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.top = '-50px';
+                heart.style.opacity = '0';
+            }, 100);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        function showLove() {
+            alert('Eres el amor de mi vida. Cada día me enamoro más de ti. Te amo infinitamente ❤️');
+            for(let i = 0; i < 20; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        setInterval(() => {
+            createHeart();
+        }, 2000);
+    </script>
+</body>
+</html>
